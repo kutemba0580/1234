@@ -1,0 +1,42 @@
+{
+  "name": "hex-architect",
+  "version": "0.0.14",
+  "description": "A collection of components for creating hexagonal architecture with ports and adapters which allows for clean separation of the application and domain layers from the execution environment.",
+  "main": "bin/index.js",
+  "scripts": {
+    "prepush": "npm run build && npm run lint-fix",
+    "prepare-deployment": "cp package.json bin/package.json",
+    "deploy": "npm run build && npm run prepare-deployment && npm publish bin",
+    "build": "rm -rf bin && tsc",
+    "lint": "tslint 'src/**/*.ts'",
+    "lint-fix": "tslint --fix 'src/**/*.ts'",
+    "coverage": "nyc report --reporter=lcov"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dpapukchiev/hex-architect.git"
+  },
+  "keywords": [
+    "typescript",
+    "hexagonal-architecture",
+    "hexagon",
+    "framework"
+  ],
+  "author": "Daniel Papukchiev <dpapukchiev@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dpapukchiev/hex-architect/issues"
+  },
+  "homepage": "https://github.com/dpapukchiev/hex-architect#readme",
+  "dependencies": {
+    "reflect-metadata": "^0.1.12",
+    "typescript": "^3.1.6",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.10",
+    "@types/uuid": "^3.4.4",
+    "prepush": "^3.1.11",
+    "ts-lint": "^4.5.1"
+  }
+}
